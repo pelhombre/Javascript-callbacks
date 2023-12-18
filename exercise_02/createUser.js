@@ -1,3 +1,4 @@
+import validateString from "../helpers/validateString.js";
 /**
  * Define 'createUser' function and signature (JSDocs)
  *
@@ -13,3 +14,21 @@
  * output
  *  - string
  */
+
+/**
+ * A function that depending on the random number value calls whether onError or onSuccess function
+ *
+ * @param {string} email
+ * @param {function} onError
+ * @param {function} onSuccess
+ * @returns {string}
+ */
+function createUser(email, onError, onSuccess) {
+  const number = Math.random();
+
+  if (number < 0.5 || !validateString(email)) {
+    return onError();
+  }
+  return onSuccess(email);
+}
+export default createUser;

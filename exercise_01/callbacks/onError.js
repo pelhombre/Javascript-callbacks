@@ -8,11 +8,13 @@
  *  - empty array
  */
 /**
- * Function 'onError' to handle error cases.
+ * This function returns an empty array when called!
  *
- * @returns {Array} - An empty array representing an error.
+ * @returns {[]}
  */
- function onError() {
-    return [];
-  }
-  
+
+function onError() {
+  return [];
+}
+
+export default onError;

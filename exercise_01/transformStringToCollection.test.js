@@ -1,45 +1,67 @@
+import transformStringToArray from "./transformStringToCollection.js";
 
-const { transformStringToArray, onError, onSuccess } = require('./transformStringToArray');
-
-// Pruebas para transformStringToArray
-describe('transformStringToArray function', () => {
-  // Caso de prueba 1: Valor válido
-  test('should transform a string to an array', () => {
-    const inputString = 'Hello World';
-    const result = transformStringToArray(inputString, onError, onSuccess);
-    expect(result).toEqual(['Hello', 'World']);
+describe("Given function transformStringToArray", () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
   });
+  const mockOnError = jest.fn().mockImplementation(() => []);
+  const mockOnSuccess = jest
+    .fn()
+    .mockImplementation(() => ["Em", "dic", "Arnau"]);
 
-  // Caso de prueba 2: Valor no válido (error)
-  test('should handle an invalid value with onError', () => {
-    const invalidValue = 42; 
-    const result = transformStringToArray(invalidValue, onError, onSuccess);
+  test("When the value type of is a number then empty array should be returned", () => {
+    //Arrange
+    const number = 12;
+    //Act
+    const result = transformStringToArray(number, mockOnError, mockOnSuccess);
+    //Assert
     expect(result).toEqual([]);
+    expect(mockOnError).toHaveBeenCalledTimes(1);
   });
 
-  // Caso de prueba 3: Cadena vacía (error)
-  test('should handle an empty string with onError', () => {
-    const emptyString = '';
-    const result = transformStringToArray(emptyString, onError, onSuccess);
+  test("When the value type of is an array then empty array should be returned", () => {
+    // Arrange
+    const array = [1, 3, "abc"];
+    // Act
+    const result = transformStringToArray(array, mockOnError, mockOnSuccess);
+    // Assert
     expect(result).toEqual([]);
+    expect(mockOnError).toHaveBeenCalledTimes(1);
   });
-});
 
-// Pruebas para onSuccess
-describe('onSuccess function', () => {
-  // Caso de prueba 1: Valor válido
-  test('should return the input array', () => {
-    const inputArray = ['Hello', 'World'];
-    const result = onSuccess(inputArray);
-    expect(result).toEqual(['Hello', 'World']);
-  });
-});
-
-// Pruebas para onError
-describe('onError function', () => {
-  // Caso de prueba 1: Valor no válido
-  test('should return an empty array for an invalid value', () => {
-    const result = onError();
+  test("When the value type of is a boolean then empty array should be returned", () => {
+    // Arrange
+    const boolean = true;
+    // Act
+    const result = transformStringToArray(boolean, mockOnError, mockOnSuccess);
+    // Assert
     expect(result).toEqual([]);
+    expect(mockOnError).toHaveBeenCalledTimes(1);
+  });
+  test("When the value is an empty string then empty array should be returned", () => {
+    // Arrange
+    const emptyString = "";
+    // Act
+    const result = transformStringToArray(
+      emptyString,
+      mockOnError,
+      mockOnSuccess,
+    );
+    // Assert
+    expect(result).toEqual([]);
+    expect(mockOnError).toHaveBeenCalledTimes(1);
+  });
+  test("When the value type of is an array then empty array should be returned", () => {
+    // Arrange
+    const fulfilledString = "Em dic Arnau";
+    // Act
+    const result = transformStringToArray(
+      fulfilledString,
+      mockOnError,
+      mockOnSuccess,
+    );
+    // Assert
+    expect(result).toEqual(["Em", "dic", "Arnau"]);
+    expect(mockOnSuccess).toHaveBeenCalledTimes(1);
   });
 });

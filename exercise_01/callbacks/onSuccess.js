@@ -10,14 +10,11 @@
  */
 
 /**
- * Function 'onSuccess' to process a string and return an array with all words contained in it.
- *
- * @param {string} value - The input string.
- * @returns {Array} - An array containing all words in the input string.
+ * Receives a string and returns an array with all the words contained in it
+ * @param {string} value
+ * @returns {Array}
  */
- function onSuccess(value) {
-    // Utiliza expresiones regulares para dividir la cadena en palabras
-    const wordsArray = value.split(/\s+/);
-    return wordsArray;
-  }
-  
+const onSuccess = (value) => {
+  return value.split(" ");
+};
+export default onSuccess;
