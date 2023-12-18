@@ -6,18 +6,6 @@
 
 - mock `onError` & `onSuccess` callbacks using `jest.fn`
 - check callbacks have been called only once
-
-test('check if the results match the expected ones', () => {
-    // Case 1: Valid string value
-    
-    const validStringValue = 'Hello World';
-
-    const expectedResult1 = ['Hello', 'World'];
-
-    transformStringToCollection(validStringValue, mockedOnError, mockedOnSuccess);
-
-    expect(mockedOnSuccess).toHaveBeenCalledWith(expectedResult1);
-
 - check result is the expected one for all cases defined at `index.js`
 
 ### 🧪 `createUser` test refinement
