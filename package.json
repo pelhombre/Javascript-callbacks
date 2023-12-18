@@ -1,18 +1,30 @@
-{"name":"07_javascript_callbacks",
-  "version":"1.0.0",
-  "description":"JS functions",
-  "main":"index.js",
-  "type":"module",
-  "scripts":{
-    "test":"echo \"Error: no test specified\" && exit 1",
-  "lint":"prettier --check .",
-  "lint:fix":"prettier --write ."
-},
-  "keywords":[],
-  "author":"",
-  "license":"ISC",
-  "devDependencies":{
-    "jest":"^29.7.0",
-    "prettier":"^2.8.8"
+{
+  "name": "07_javascript_callbacks",
+  "version": "1.0.0",
+  "description": "JS Callbacks",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "prettier --check .",
+    "lint:fix": "prettier --write ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "babel": {
+    "env": {
+      "test": {
+        "plugins": [
+          "@babel/plugin-transform-modules-commonjs"
+        ]
+      }
     }
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "7.23.3",
+    "jest": "29.7.0",
+    "prettier": "3.1.0"
   }
+}
