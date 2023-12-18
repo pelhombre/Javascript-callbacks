@@ -53,7 +53,7 @@ describe("Given function transformStringToArray", () => {
   });
   test("When the value type of is an array then empty array should be returned", () => {
     // Arrange
-    const fulfilledString = "Em dic Arnau";
+    const fulfilledString = "Hola hem dic Pol"
     // Act
     const result = transformStringToArray(
       fulfilledString,
@@ -61,7 +61,7 @@ describe("Given function transformStringToArray", () => {
       mockOnSuccess,
     );
     // Assert
-    expect(result).toEqual(["Em", "dic", "Arnau"]);
+    expect(result).toEqual(["Hola", "hem", "dic", "Pol"]);
     expect(mockOnSuccess).toHaveBeenCalledTimes(1);
   });
 });
